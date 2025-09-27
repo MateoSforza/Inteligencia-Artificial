@@ -1,25 +1,19 @@
-% Hechos
+%Hechos
 pais(argentina).
 pais(uruguay).
-
 provincia(santa_cruz).
 departamento(canelones).
 
-% Relaciones
-% Santa Cruz pertenece a Argentina
-pertenece(santa_cruz, argentina).
+% Declaraciones vacias (no hay hechos, por eso siempre seran falsas)
+:- dynamic lago/1.
+:- dynamic ciudad/1.
 
-% Canelones pertenece a Uruguay
-pertenece(canelones, uruguay).
+%Consultas
+:- writeln('¿Es Marruecos un pais?'),
+    (pais(marruecos) -> writeln('Si'); writeln('No, no hay informacion')).
 
-%Consultas de prueba automáticas
-:- writeln('--- Consultas de prueba ---').
+:- writeln('¿Es Ganges un lago?'),
+    (lago(ganges) -> writeln('Si'); writeln('No, no hay informacion')).
 
-:- writeln('Paises:'),
-    (pais(X), writeln(X), fail; true).
-
-:- writeln('Santa Cruz pertenece a:'),
-    (pertenece(santa_cruz, P), writeln(P), fail; true).
-
-:- writeln('Regiones de Uruguay:'),
-    (pertenece(X, uruguay), writeln(X), fail; true).
+:- writeln('¿Es Estonia una ciudad?'),
+    (ciudad(estonia) -> writeln('Si'); writeln('No, no hay informacion')).
